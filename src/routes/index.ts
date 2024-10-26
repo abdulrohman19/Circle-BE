@@ -1,5 +1,6 @@
 import { Router } from "express";
 import userRouter from "./userRouter";
+import authRouter from "./authRouter";
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -9,5 +10,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/users", userRouter);
+router.use(authRouter);
 
 export default router;
