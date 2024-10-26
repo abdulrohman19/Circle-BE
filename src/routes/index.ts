@@ -1,6 +1,7 @@
 import { Router } from "express";
 import userRouter from "./userRouter";
 import authRouter from "./authRouter";
+import { authentication } from "../middlewares/authentication";
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -9,7 +10,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.use("/users", userRouter);
+router.use("/users", authentication, userRouter);
 router.use(authRouter);
 
 export default router;
