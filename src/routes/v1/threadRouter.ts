@@ -1,7 +1,7 @@
 import { Router } from "express";
-import * as threadController from "../controllers/threads";
-import { authentication } from "../middlewares/authentication";
-import { upload } from "../middlewares/file-upload";
+import * as threadController from "../../controllers/threads";
+import { authentication } from "../../middlewares/authentication";
+import { upload } from "../../middlewares/file-upload";
 
 const threadRouter = Router();
 

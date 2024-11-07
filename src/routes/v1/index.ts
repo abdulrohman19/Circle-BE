@@ -1,8 +1,9 @@
 import { Router } from "express";
 import userRouter from "./userRouter";
 import authRouter from "./authRouter";
-import { authentication } from "../middlewares/authentication";
+import { authentication } from "../../middlewares/authentication";
 import threadRouter from "./threadRouter";
+
 const router = Router();
 
 router.get("/", (req, res) => {
