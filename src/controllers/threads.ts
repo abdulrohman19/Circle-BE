@@ -3,6 +3,17 @@ import * as threadServices from "../services/threadService";
 import {findManyThreads} from "../repositories/threadRepository";
 
 export const createThread = async (req: Request, res: Response) => {
+     /*  #swagger.requestBody = {
+            required: true,
+            content: {
+                "multipart/form-data": {
+                    schema: {
+                        $ref: "#/components/schemas/CreateThreadDTO"
+                    }  
+                }
+            }
+        } 
+    */
     try {
         const { body, file} = req;
         const user = res.locals.user;

@@ -16,6 +16,10 @@ export const authentication = (
   res: Response,
   next: NextFunction
 ) => {
+
+/* #swagger.security = [{
+            "bearerAuth": []
+    }] */
   const { authorization } = req.headers;
 
   if (!authorization) {

@@ -15,6 +15,17 @@ export const getUser = async (req: Request, res: Response) => {
 };
 
 export const createUser = async (req: Request, res: Response) => {
+   /*  #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/CreateUserDTO"
+                    }  
+                }
+            }
+        } 
+    */
   try {
     // const body = req.body
     const { body } = req;
@@ -33,6 +44,17 @@ export const createUser = async (req: Request, res: Response) => {
 };
 
 export const updateUser = async (req: Request, res: Response) => {
+   /*  #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/UpdateUserDTO"
+                    }  
+                }
+            }
+        } 
+    */
   try {
     const { body } = req;
     const { id } = req.params;
