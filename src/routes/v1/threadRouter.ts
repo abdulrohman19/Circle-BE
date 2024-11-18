@@ -7,11 +7,13 @@ const threadRouter = Router();
 
 threadRouter.post(
   "/",
-
+  authentication,
   upload.single("file"),
   threadController.createThread
 );
 
 threadRouter.get("/", threadController.getThreads);
+
+threadRouter.get("/:id", threadController.getThreadById);
 
 export default threadRouter;
