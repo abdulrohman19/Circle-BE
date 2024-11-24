@@ -20,6 +20,7 @@ model User {
   email    String    @unique
   password String
   Threads  Threads[]
+  profile  Profile?
 }
 
 model Threads {
@@ -27,6 +28,14 @@ model Threads {
   content String?
   file    String?
   userId  Int
+  createdAt DateTime @default(now())
 
   user User @relation(references: [id], fields: [userId])
+}
+
+model Profile {
+  id        Int    @id @default(autoincrement())
+  fullName  String
+  userId    Int    @unique
+  user      User   @relation(references: [id], fields: [userId])
 }
