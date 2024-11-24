@@ -21,7 +21,11 @@ export const findManyThreads = async () => {
     return JSON.parse (threadRedis);
   }
 
-  const threads = await prisma.threads.findMany();
+  const threads = await prisma.threads.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+});
 
   redisClient.set("THREADS_DATA", JSON.stringify(threads));
 

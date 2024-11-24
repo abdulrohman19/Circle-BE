@@ -1,7 +1,15 @@
 import { User } from "@prisma/client";
 import prisma from "../libs/prisma";
 
-export const createUser = async (user: User) => {
+export const createUser = async (user: {
+  name: string;
+  address: string | null;
+  email: string;
+  password: string;
+  profile?: {
+    fullName: string;
+  };
+}) => {
   console.log("User to be created:", user);
   return await prisma.user.create({
     data: {
@@ -9,6 +17,11 @@ export const createUser = async (user: User) => {
       address: user.address,
       email: user.email,
       password: user.password,
+      profile: user.profile?.fullName ? {
+        create: {
+          fullName: user.profile.fullName,
+        },
+      } : undefined,
     },
   });
 };
